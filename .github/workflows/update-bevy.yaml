@@ -17,6 +17,12 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
+      - name: Set up GitHub CLI
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          echo "$GH_TOKEN" | gh auth login --with-token
+
       - name: Fetch the latest Bevy commit
         run: |
           BEVY_MAIN_COMMIT=$(git ls-remote https://github.com/bevyengine/bevy.git main | awk '{print $1}')
