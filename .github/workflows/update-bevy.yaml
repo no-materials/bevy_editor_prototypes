@@ -2,7 +2,8 @@ name: Update Bevy Dependency
 
 on:
   schedule:
-    - cron: "0 0 * * *" # Runs daily at midnight UTC
+    # - cron: "0 0 * * *" # Runs daily at midnight UTC
+    - cron: "*/3 * * * *" # TEST: Runs every 3 minutes
   workflow_dispatch: # Allows manual trigger as well
 
 jobs:
